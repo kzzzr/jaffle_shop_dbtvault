@@ -5,22 +5,18 @@
 }}
 
 {%- set yaml_metadata -%}
-source_model: 'source_orders'
+source_model: 'source_customers'
 derived_columns:
-  CUSTOMER_KEY: 'user_id'
-  ORDER_KEY: 'id'
-  RECORD_SOURCE: '!CSV_ORDERS'
+  CUSTOMER_KEY: 'id'
+  RECORD_SOURCE: '!CSV_CUSTOMERS'
 hashed_columns:
-  CUSTOMER_PK: 'user_id'
-  ORDER_PK: 'id'
-  LINK_CUSTOMER_ORDER_PK:
-    - 'user_id'
-    - 'id'
-  ORDER_HASHDIFF:
+  CUSTOMER_PK: 'id'
+  CUSTOMER_HASHDIFF:
     is_hashdiff: true
     columns:
-      - 'order_date'
-      - 'status'
+      - 'first_name'
+      - 'last_name'
+      - 'email'
 {%- endset -%}
 
 {% set metadata_dict = fromyaml(yaml_metadata) %}

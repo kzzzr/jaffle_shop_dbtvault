@@ -1,6 +1,12 @@
-{%- set source_model = "v_stg_orders" -%}
+{{
+    config(
+        enabled=True
+    )
+}}
+
+{%- set source_model = ["v_stg_customers", "v_stg_orders"] -%}
 {%- set src_pk = "CUSTOMER_PK" -%}
-{%- set src_nk = "CUSTOMERKEY" -%}
+{%- set src_nk = "CUSTOMER_KEY" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 

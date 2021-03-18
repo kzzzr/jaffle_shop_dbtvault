@@ -1,5 +1,5 @@
-name: dbtvault_snowflake_demo
-profile: dbtvault_snowflake_demo
+name: dbtvault_greenplum
+profile: dbtvault_greenplum
 version: '5.1.0'
 require-dbt-version: ['>=0.18.0', '<0.20.0']
 config-version: 2
@@ -17,23 +17,28 @@ source-paths:
 test-paths:
   - tests
 target-path: target
+clean-targets:
+    - "target"
+    # - "dbt_modules"
 
 vars:
-  load_date: '1992-01-08'
-  tpch_size: 10 #1, 10, 100, 1000, 10000
+  load_date: 'current_date'
+  # tpch_size: 10 #1, 10, 100, 1000, 10000
 
 models:
-  dbtvault_snowflake_demo:
+  dbtvault_greenplum:
     raw_stage:
+      enabled: false
       tags:
         - 'raw'
       materialized: view
     stage:
+      enabled: false
       tags:
         - 'stage'
-      enabled: true
       materialized: view
     raw_vault:
+      enabled: false
       tags:
         - 'raw_vault'
       materialized: incremental
