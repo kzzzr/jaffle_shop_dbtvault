@@ -7,4 +7,10 @@ sources:
     tables:
       - name: source_customers
       - name: source_orders
+
+  - name: rt
+    database: rtk_de
+    schema: akozyr
+    tables:
+      - name: ods_payment
       # - name: source_payments

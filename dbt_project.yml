@@ -22,7 +22,7 @@ clean-targets:
     # - "dbt_modules"
 
 vars:
-  load_date: 'current_date'
+  load_date: 'current_timestamp'
   # tpch_size: 10 #1, 10, 100, 1000, 10000
 
 models:
