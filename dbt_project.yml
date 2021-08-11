@@ -1,6 +1,6 @@
-name: dbtvault_greenplum
-profile: dbtvault_greenplum
-version: '5.1.0'
+name: jaffle_shop_dbtvault
+profile: jaffle_shop
+version: '0.1.0'
 require-dbt-version: ['>=0.18.0', '<0.20.0']
 config-version: 2
 
@@ -19,26 +19,18 @@ test-paths:
 target-path: target
 clean-targets:
     - "target"
-    # - "dbt_modules"
+    - "dbt_modules"
 
 vars:
   load_date: 'current_timestamp'
-  # tpch_size: 10 #1, 10, 100, 1000, 10000
 
 models:
-  dbtvault_greenplum:
-    raw_stage:
-      enabled: false
-      tags:
-        - 'raw'
-      materialized: view
+  jaffle_shop_dbtvault:
     stage:
-      enabled: false
       tags:
         - 'stage'
       materialized: view
     raw_vault:
-      enabled: false
       tags:
         - 'raw_vault'
       materialized: incremental
@@ -51,6 +43,4 @@ models:
       sats:
         tags:
           - 'satellite'
-      t_links:
-        tags:
-          - 't_link'
+
