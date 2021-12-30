@@ -1,7 +1,7 @@
 name: jaffle_shop_dbtvault
 profile: jaffle_shop
 version: '0.1.0'
-require-dbt-version: ['>=0.18.0', '<0.20.0']
+require-dbt-version: ['>=0.18.0', '<0.22.0']
 config-version: 2
 
 analysis-paths:
@@ -17,19 +17,24 @@ source-paths:
 test-paths:
   - tests
 target-path: target
+
+
 clean-targets:
     - "target"
-    - "dbt_modules"
+    # - "dbt_modules"
 
 vars:
   load_date: 'current_timestamp'
 
 models:
+
   jaffle_shop_dbtvault:
+
     stage:
       tags:
         - 'stage'
       materialized: view
+      
     raw_vault:
       tags:
         - 'raw_vault'
