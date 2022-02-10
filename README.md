@@ -1,29 +1,32 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/25080503/65772647-89525700-e132-11e9-80ff-12ad30a25466.png">
-</p>
+## Environment setup
 
-### dbt models for dbtvault Snowflake Demonstration
+Either use `pipenv` for Virtual Environment or Docker container
 
-This is a downloadable example dbt project using [dbtvault](https://github.com/Datavault-UK/dbtvault) to create a Data Vault 2.0 Data Warehouse
-based on the Snowflake TPC-H dataset.
+### Python virtual enironment
 
----
+Sync dependencies of specific versions and open subshell:
 
-#### dbtvault Docs
-[![Documentation Status](https://readthedocs.org/projects/dbtvault/badge/?version=latest)](https://dbtvault.readthedocs.io/en/latest/?badge=latest)
+```bash
+pipenv sync
+pipenv shell
 
-Click the button above to read the latest dbtvault docs.
+dbt --version
+dbt debug
+```
 
-A guide for using this demo is available [here](https://dbtvault.readthedocs.io/en/latest/worked_example/we_worked_example/)
+### Docker
 
----
-[dbt](https://www.getdbt.com/) is a registered trademark of [Fishtown Analytics](https://www.fishtownanalytics.com/).
+1. Launch containers with dbt and postgres
+2. Enter dbt container for interactive session
 
-Check them out below:
+```bash
+docker-compose up -d
+docker-compose exec dbt bash
 
-#### DBT Docs
-- [What is dbt](https://dbt.readme.io/docs/overview)?
-- Read the [dbt viewpoint](https://dbt.readme.io/docs/viewpoint)
-- [Installation](https://dbt.readme.io/docs/installation)
-- Join the [chat](http://ac-slackin.herokuapp.com/) on Slack for live questions and support.
----
+dbt --version
+dbt debug
+```
+
+Or simply attach shell in VS Code:
+
+![](https://habrastorage.org/webt/rc/v9/-k/rcv9-ktw8dlyfyh_rklhigeqgse.png)

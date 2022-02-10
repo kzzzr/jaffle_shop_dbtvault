@@ -1,0 +1,17 @@
+config:
+  send_anonymous_usage_stats: False
+  use_colors: True
+  partial_parse: True
+
+jaffle_shop:
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: postgres
+      port: 5432
+      user: postgres
+      pass: postgres
+      dbname: postgres
+      schema: dbt
+  target: dev  

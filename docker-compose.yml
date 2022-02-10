@@ -1,15 +1,16 @@
-version: '2.1'
+version: '2'
 services:
 
-    greenplum_6.8:
-      container_name: greenplum_6.8
-      ports:
-        - "54305:5432"
-      image: datagrip/greenplum:6.8
-      hostname: greenplum_6.8.1
-      # security_opt:
-      #  - seccomp:unconfined
-      healthcheck:
-        test: grep -r -i --include \*.log "Database successfully started" || exit 1
-      # volumes:
-        # - ./data/:/tmp/data        
+  dbt:
+    build: .
+    volumes:
+     - .:/usr/app/
+    ports:
+      - 8080:8080
+
+  postgres:
+    image: postgres
+    environment: 
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
