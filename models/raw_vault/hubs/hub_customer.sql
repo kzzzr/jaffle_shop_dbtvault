@@ -4,7 +4,7 @@
     )
 }}
 
-{%- set source_model = ["v_stg_customers", "v_stg_orders"] -%}
+{%- set source_model = ["v_stg_customers", "v_stg_orders", "v_stg_customers_crm"] -%}
 {%- set src_pk = "CUSTOMER_PK" -%}
 {%- set src_nk = "CUSTOMER_KEY" -%}
 {%- set src_ldts = "LOAD_DATE" -%}
