@@ -6,8 +6,6 @@ config-version: 2
 
 analysis-paths:
   - analysis
-clean-targets:
-  - target
 data-paths:
   - data
 macro-paths:
