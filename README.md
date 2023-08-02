@@ -1,32 +1,44 @@
-## Environment setup
+## Configure environment
 
-Either use `pipenv` for Virtual Environment or Docker container
+1. Install prerequisites:
+    - IDE (e.g. [VS Code](https://code.visualstudio.com/docs/setup/setup-overview))
+    - [Docker](https://docs.docker.com/engine/install/)
 
-### Python virtual enironment
+1. Fork & Clone this repository and open in IDE
 
-Sync dependencies of specific versions and open subshell:
+1. Spin up Docker containers
 
-```bash
-pipenv sync
-pipenv shell
+    All the services are configured via [Docker containers](./docker-compose.yml).
 
-dbt --version
-dbt debug
-```
+    - devcontainer
+    - Postgres
 
-### Docker
+    ```bash
+    # build dev container
+    devcontainer build .
 
-1. Launch containers with dbt and postgres
-2. Enter dbt container for interactive session
+    # open dev container
+    devcontainer open .
+    ```
 
-```bash
-docker-compose up -d
-docker-compose exec dbt bash
+    ![](./docs/1_docker_compose_services.png)
 
-dbt --version
-dbt debug
-```
+1. Verify you are in a development container by running commands:
 
-Or simply attach shell in VS Code:
+    ```bash
+    dbt --version
+    ```
 
-![](https://habrastorage.org/webt/rc/v9/-k/rcv9-ktw8dlyfyh_rklhigeqgse.png)
+    ![](./docs/2_dbt_version.png)
+
+    If any of these commands fails printing out used software version then you are probably running it on your local machine not in a dev container!
+
+
+## Install dbt packages
+
+1. Install modules via [packages.yml](./packages.yml)
+
+    ```bash
+    dbt clean # clean temp files
+    dbt deps # install dependencies (modules)
+    ```

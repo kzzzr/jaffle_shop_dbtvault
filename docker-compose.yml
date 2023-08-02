@@ -1,10 +1,11 @@
 version: '2'
 services:
 
-  dbt:
+  devcontainer:
     build: .
+    entrypoint: ["tail", "-f", "/dev/null"]
     volumes:
-     - .:/usr/app/
+      - .:/workspaces/jaffle_shop_dbtvault/
     ports:
       - 8080:8080
 

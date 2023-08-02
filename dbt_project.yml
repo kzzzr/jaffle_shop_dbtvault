@@ -43,4 +43,3 @@ models:
       sats:
         tags:
           - 'satellite'
-
